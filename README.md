@@ -9,4 +9,4 @@ All questions will be recorded in a single folder, and a folder is constructed w
 All codes can be accepted in leetcode, just copy that!
 
 ## Contributor
-David Liu
+David Liu.
