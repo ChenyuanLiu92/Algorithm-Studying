@@ -39,6 +39,26 @@ class Sort
             nums[min_idx] = tmp;
         }
     }
+
+    void insertSort(std::vector<int> & nums)
+    {
+        for (int i = 1 ; i<nums.size(); i++)
+        {
+            int now = nums[i];
+            int j;
+            for (j = i-1; j>=0;j--)
+            {
+                if (nums[j]>now)
+                    nums[j+1] = nums[j];
+                else
+                {
+                    nums[j+1] = now;
+                    break;
+                }
+            }
+            nums[j+1] = now;
+        }
+    }
 };
 
 int main()
@@ -48,7 +68,7 @@ int main()
     for (int i = 0; i<5;i++)
         nums.push_back(5-i);
     Sort s;
-    s.selectedSort(nums);
+    s.insertSort(nums);
     for (int i  = 0; i<nums.size(); i++)
         cout<<nums[i]<<"  ";
 
