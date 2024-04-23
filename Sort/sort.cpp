@@ -59,6 +59,37 @@ class Sort
             nums[j+1] = now;
         }
     }
+
+    void shellSort(std::vector<int> & nums)
+    {
+        int gap = nums.size()/2;
+        while (gap > 0)
+        {
+            for (int i = 0; i < nums.size(); i++)
+            {
+                for (int j = i+gap; j<nums.size(); j+=gap)
+                {
+                    // 插入排序
+                    int k;
+                    int now = nums[j];
+                    for ( k = j-gap; k>=0; k -= gap)
+                    {
+                        if (nums[k]>now)
+                        {
+                            nums[k+gap] = nums[k];
+                        }
+                        else
+                        {
+                            nums[k+gap] = now;
+                            break;
+                        }
+                    }
+                    nums[k + gap] = now;
+                }
+            }
+            gap /= 2;
+        }
+    }
 };
 
 int main()
@@ -68,7 +99,7 @@ int main()
     for (int i = 0; i<5;i++)
         nums.push_back(5-i);
     Sort s;
-    s.insertSort(nums);
+    s.shellSort(nums);
     for (int i  = 0; i<nums.size(); i++)
         cout<<nums[i]<<"  ";
 
