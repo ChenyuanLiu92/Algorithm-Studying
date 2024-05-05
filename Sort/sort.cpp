@@ -90,6 +90,33 @@ class Sort
             gap /= 2;
         }
     }
+
+    void quickSort(int low, int high, std::vector<int> & nums)
+    {
+        if (low < high)
+        {
+        int pivot = partition(low, high, nums);
+        quickSort(low, pivot-1, nums);
+        quickSort(pivot+1, high, nums);
+        }
+    }
+    int partition(int low, int high, std::vector<int> & nums)
+    {
+        int pivot = nums[high];
+        while (low <= high)
+        {
+            if (nums[low] > nums[high])
+            {
+                std::swap(nums[low], swab(high));
+                high--;
+                continue;
+            }
+
+            if (nums[])
+
+        }
+        return low - 1;
+    }
 };
 
 int main()
@@ -97,9 +124,9 @@ int main()
     using namespace std;
     std::vector<int> nums;
     for (int i = 0; i<5;i++)
-        nums.push_back(5-i);
+        nums.push_back(i);
     Sort s;
-    s.shellSort(nums);
+    s.quickSort(0, 4 ,nums);
     for (int i  = 0; i<nums.size(); i++)
         cout<<nums[i]<<"  ";
 
